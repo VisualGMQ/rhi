@@ -8,6 +8,9 @@ int main(int argc, char** argv) {
     bool shouldClose = false;
     SDL_Event event;
 
+    std::unique_ptr<rhi::Instance> instance = rhi::CreateInstance(rhi::RHIType::GL4);
+    rhi::Device* device = instance->CreateDevice(); 
+
     while (!shouldClose) {
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT) {
