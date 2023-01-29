@@ -30,6 +30,13 @@ ShaderModule::ShaderModule(const std::string& code,
     }
 }
 
+ShaderModule::ShaderModule(const std::vector<uint32_t>& spir_v,
+                           rhi::ShaderModule::Stage stage)
+    : rhi::ShaderModule(stage) {
+    // TODO use SPIR-V
+    assert(false);
+}
+
 ShaderModule::~ShaderModule() {
     glDeleteShader(shader_);
 }

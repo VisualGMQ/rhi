@@ -5,11 +5,14 @@
 #include "rhi/rhi.hpp"
 #include "rhi/impl/gl4/glhelper.hpp"
 
+#include <cassert>
+
 namespace rhi::gl4 {
 
 class ShaderModule : public rhi::ShaderModule {
 public:
-    ShaderModule(const std::string& code, rhi::ShaderModule::Stage stage);
+    ShaderModule(const std::string& code, rhi::ShaderModule::Stage);
+    ShaderModule(const std::vector<uint32_t>& spir_v, rhi::ShaderModule::Stage);
     ~ShaderModule();
 
     operator bool() const {
